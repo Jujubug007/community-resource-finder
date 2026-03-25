@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Resource Finder | Local Social Programs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <h1>Community Resource Finder</h1>
+        <p class="tagline">Find local social programs and assistance available to you</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Search & Filter Bar -->
+    <section class="search-section">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search programs by name, keyword, or description..." aria-label="Search programs">
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-category="all">All Programs</button>
+        <button class="filter-btn" data-category="food">Food & Nutrition</button>
+        <button class="filter-btn" data-category="housing">Housing</button>
+        <button class="filter-btn" data-category="healthcare">Healthcare</button>
+        <button class="filter-btn" data-category="financial">Financial Aid</button>
+        <button class="filter-btn" data-category="employment">Employment</button>
+        <button class="filter-btn" data-category="education">Education</button>
+        <button class="filter-btn" data-category="family">Family & Children</button>
+        <button class="filter-btn" data-category="seniors">Seniors</button>
+        <button class="filter-btn" data-category="disability">Disability</button>
+        <button class="filter-btn" data-category="veterans">Veterans</button>
+        <button class="filter-btn" data-category="transit">Public Transit</button>
+      </div>
+    </section>
+
+    <!-- Eligibility Quick Check -->
+    <section class="eligibility-section">
+      <h2>Quick Eligibility Check</h2>
+      <p>Answer a few questions to see which programs you may qualify for.</p>
+      <div class="eligibility-form">
+        <div class="form-group">
+          <label for="householdSize">Household Size</label>
+          <select id="householdSize">
+            <option value="">Select...</option>
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8+ people</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="annualIncome">Annual Household Income</label>
+          <select id="annualIncome">
+            <option value="">Select...</option>
+            <option value="15000">Under $15,000</option>
+            <option value="25000">$15,000 - $25,000</option>
+            <option value="35000">$25,000 - $35,000</option>
+            <option value="50000">$35,000 - $50,000</option>
+            <option value="75000">$50,000 - $75,000</option>
+            <option value="100000">$75,000 - $100,000</option>
+            <option value="100001">Over $100,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Check all that apply:</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" id="hasChildren"> Have children under 18</label>
+            <label class="checkbox-label"><input type="checkbox" id="isSenior"> Age 60 or older</label>
+            <label class="checkbox-label"><input type="checkbox" id="isVeteran"> Veteran or active military</label>
+            <label class="checkbox-label"><input type="checkbox" id="hasDisability"> Have a disability</label>
+            <label class="checkbox-label"><input type="checkbox" id="isUnemployed"> Currently unemployed</label>
+            <label class="checkbox-label"><input type="checkbox" id="isPregnant"> Pregnant</label>
+          </div>
+        </div>
+        <button id="checkEligibility" class="btn-primary">Check My Eligibility</button>
+        <button id="clearEligibility" class="btn-secondary">Clear Filters</button>
+      </div>
+    </section>
+
+    <!-- Results Count -->
+    <div class="results-info">
+      <span id="resultsCount"></span>
+    </div>
+
+    <!-- Program Cards -->
+    <section id="programGrid" class="program-grid">
+      <!-- Cards rendered by JS -->
+    </section>
+
+    <!-- No Results -->
+    <div id="noResults" class="no-results" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/>
+      </svg>
+      <h3>No programs found</h3>
+      <p>Try adjusting your search or filters to find more programs.</p>
+    </div>
+  </main>
+
+  <!-- Info Banner -->
+  <section class="info-banner">
+    <div class="container">
+      <h2>Need Help Applying?</h2>
+      <p>Many programs have local offices that can help you with the application process. Call <strong>211</strong> (available 24/7) to be connected with a trained specialist who can guide you to the right resources.</p>
+      <div class="info-cards">
+        <div class="info-card">
+          <h3>Call 211</h3>
+          <p>Free, confidential helpline available 24/7 in most areas. Specialists can help identify programs you qualify for.</p>
+        </div>
+        <div class="info-card">
+          <h3>Visit Benefits.gov</h3>
+          <p>The official benefits website of the U.S. government with a comprehensive eligibility screening tool.</p>
+        </div>
+        <div class="info-card">
+          <h3>Local Community Centers</h3>
+          <p>Many community centers offer free assistance with program applications and can connect you with case workers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>This site is for informational purposes only. Eligibility for programs depends on individual circumstances and may vary by location. Contact program administrators directly to confirm eligibility and apply.</p>
+      <p class="footer-note">Information is based on federal and common state/local programs. Availability may vary by region.</p>
+    </div>
+  </footer>
+
+  <script src="programs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
